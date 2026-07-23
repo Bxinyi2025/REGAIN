@@ -17,13 +17,11 @@ further converts the predicted error into a confidence score for each cell.
 .
 |-- REGAIN-pretrain/                 # Cross-modal contrastive pretraining
 |   |-- configs/config_demo.json
-|   |-- data_demo/
 |   |-- model/
 |   |-- pretrain.py
 |   `-- tutorials/training.ipynb
 |-- REGAIN-main/                     # Expression training and inference
 |   |-- configs/config_demo.json
-|   |-- data_demo/
 |   |-- model/
 |   |-- ridge_code/
 |   |-- tutorials/
@@ -75,6 +73,8 @@ Prepare the following files for each sample:
 | `matched_nuclei_filtered.csv` | H&E/ST cell correspondence; the demo contains `id_histology`, `id_xenium`, `overlap`, and `size_pix_histology` |
 | `cell_gene_matrix_filtered.csv` | Cell-by-gene expression matrix indexed by H&E cell ID |
 | `celltype_filtered.csv` | Optional cell-type table indexed by cell ID |
+
+We have provided a small set of test data, which can be downloaded from https://doi.org/10.6084/m9.figshare.33069935 in **data_demo** folder.
 
 
 ## Usage
@@ -130,7 +130,7 @@ REGAIN-main/experiments/<load_dir>/models/
 
 ### 4. Validate the model
 
-Run the commands in `REGAIN-main/tutorials/1_training_and_validation.ipynb` in sequence.
+Run the commands in `REGAIN-main/tutorials/1_training_and_validation.ipynb` in sequence. We provide a pre-trained model. Please download the **experiments** folder from https://doi.org/10.6084/m9.figshare.33069935 and place it in ""REGAIN-main"".
 
 Validation outputs are stored in
 `experiments/<load_dir>/<val_output_dir>/` and include:
