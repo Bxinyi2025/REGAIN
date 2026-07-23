@@ -1,0 +1,77 @@
+{
+    "comps": {
+        "celltype": false
+    },
+    "data": {
+        "cell_types": [
+            "B",
+            "Myeloid",
+            "Endothelial",
+            "Fibroblast",
+            "Macrophage",
+            "Malignant",
+            "Epithelial",
+            "Plasma",
+            "T"
+        ],
+        "high_conf_prob": 0.6,
+        "min_nuc_area": 10,
+        "expr_scale": 5.0,
+        "num_workers": 1,
+        "hsize": 256,
+        "wsize": 256,
+        "overlap": 30,
+        "max_cells_per_patch": 200
+    },
+    "model": {
+        "emb_dim": 256,
+        "text_base_dim": 768,
+        "text_model_base_path": "/data/HE2ST/Loki-main/checkpoint.pt"
+    },
+    "training": {
+        "batch_size": 8,
+        "total_epochs": 50,
+        "learning_rate": 0.001,
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "weight_decay": 0.0001,
+        "eps": 1e-8,
+        "stain_aug": true,
+        "patch_loss_weight": 1.0
+    },
+    "save_freqs": {
+        "model_freq": 1
+    },
+    "data_sources_train_val": {
+        "fp_nuc_seg": "data_demo/he_image_nuclei_seg.tif",
+        "fp_hist": "data_demo/he_image.tif",
+        "fp_expr": "data_demo/cell_gene_matrix_filtered.csv",
+        "fp_cell_type": "data_demo/celltype_filtered.csv",
+        "fp_nuc_sizes": "data_demo/matched_nuclei_filtered.csv"
+    },
+    "data_sources_predict": {
+        "fp_nuc_seg": "data_demo/he_image_nuclei_seg.tif",
+        "fp_hist": "data_demo/he_image.tif",
+        "fp_nuc_sizes": false
+    },
+    "regions_val": {
+        "divisions": [[0.0, 0.2],
+                      [0.2, 0.4],
+                      [0.4, 0.6],
+                      [0.6, 0.8],
+                      [0.8, 1.0]]
+    },
+    "regions_predict": {
+        "divisions": [[0.0, 1.0],
+                      [0.0, 1.0],
+                      [0.0, 1.0],
+                      [0.0, 1.0],
+                      [0.0, 1.0]]
+    },
+    "experiment_dirs": {
+        "load_dir": "data_demo",
+        "model_dir": "models",
+        "predict_output_dir": "predict_output",
+        "val_output_dir": "val_output"
+    }
+}
