@@ -8,7 +8,7 @@ cell-level and patch-level supervision to reduce sensitivity to imperfect cell
 segmentation and H&E-to-DAPI registration. A Ridge error-regression module
 further converts the predicted error into a confidence score for each cell.
 
-![](figure.png)
+![](figure.jpg)
 
 
 ## Repository structure
